@@ -29,7 +29,7 @@ A sleek, modern, and lightweight media player built with Python, PyQt and Window
 
 3. **Run the application:**
    ```bash
-   python main.py
+   python media.py
    ```
 
 ## 📦 Dependencies
