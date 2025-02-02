@@ -1,0 +1,52 @@
+#window {
+    /* for coloring go to config.conf */
+    color: #ffffff;
+}
+
+#title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+#Close {
+    background-color: #d9534f;
+    color: white;
+    border: 10px;
+    border-radius: 10px;
+}
+
+#Close:hover {
+    background-color: #c9302c;
+    border: 10px;
+    border-radius: 10px;
+}
+
+#miniMize {
+    background-color: #f0ad4e;
+    color: white;
+    border: 10px;
+    border-radius: 10px;
+}
+
+#miniMize:hover {
+    background-color: #ec971f;
+    border: 10px;
+    border-radius: 10px;
+}
+
+#playPause, #Forward, #Rewind {
+    background-color: #5bc0de;
+    color: white;
+    border: 10px;
+    border-radius: 10px;
+}
+
+#playPause:hover, #Forward:hover, #Rewind:hover {
+    background-color: #31b0d5;
+    border: 10px;
+    border-radius: 10px;
+}
