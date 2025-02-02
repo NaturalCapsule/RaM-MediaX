@@ -54,4 +54,4 @@ Contributions are welcome! Feel free to fork the repository, submit pull request
 5. Push to the branch (`git push origin feature-branch`)
 6. Open a Pull Request
 
-Made with ❤️ by [Your Name](https://github.com/naturalcapsule)
+Made with ❤️ by [Natural Capsule](https://github.com/naturalcapsule)
