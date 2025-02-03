@@ -6,6 +6,7 @@ import asyncio
 from PyQt5.QtGui import QColor, QPainter,QMovie, QIcon, QPixmap
 import sys
 import asyncio
+from configparser import ConfigParser
 from winrt.windows.media.control import GlobalSystemMediaTransportControlsSessionManager as MediaManager
 from winrt.windows.storage.streams import DataReader
 
@@ -63,18 +64,17 @@ class MeidaPlayer(QWidget):
 
 
     def loadConf(self):
-        with open('config.conf', 'r') as file:
-            lines = file.readlines()
+        config = ConfigParser()
+        config.read('config.ini')
 
-        config_dict = {}
-        for line in lines:
-            if line.strip() and not line.startswith('#'):
-                key, value = line.split('=', 1)
-                config_dict[key.strip()] = value.strip()
+        self.opacity = config.get('Appearance', 'opacity')
+        self.opacity = float(self.opacity)
 
-        self.opacity = config_dict.get('opacity')
-        self.color = config_dict.get('color')
-        self.radius_ = config_dict.get('borderRadius')
+        self.color = config.get('Appearance', 'color')
+        self.color = self.color.split(', ')
+        print(self.color)
+        self.radius_ = config.get('Appearance', 'borderRadius')
+        self.radius_ = self.radius_.split(', ')
 
     def set_opacity(self):
         self.eff = QGraphicsOpacityEffect()
@@ -84,9 +84,8 @@ class MeidaPlayer(QWidget):
     def paintEvent(self, event):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
-        painter.setBrush(QColor(int(self.color[0:2]), int(self.color[4:6]), int(self.color[8:10])))
-        painter.drawRoundedRect(self.rect(), int(self.radius_[0:2]), int(self.radius_[4:6]))
-
+        painter.setBrush(QColor(int(self.color[0]), int(self.color[1]), int(self.color[2])))
+        painter.drawRoundedRect(self.rect(), int(self.radius_[0]), int(self.radius_[1]))
 
     def mousePressEvent(self, event):
         self.oldpos = event.globalPos()
@@ -347,7 +346,6 @@ class MeidaPlayer(QWidget):
 
         self.setLayout(outer_layout)
 
-        # self.setLayout(outer_layout)
 
         self.media_button = QPushButton(self)
         self.media_button.setIcon(QIcon('svgs/play.svg'))

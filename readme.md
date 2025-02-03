@@ -1,64 +1,3 @@
-## ENGLISH
-
-# 📺 RaM-MediaX
-
-A sleek, modern, and lightweight media player built with Python, PyQt and Windows API. RaM-MediaX offers a minimalist interface with powerful playback features, optimized for both performance and ease of use.
-
-## 🚀 Features
-
-- 🎵 **Play/Pause, Forward, Rewind**
-- 📂 **Supports Popular Media Formats** (MP3, MP4, WAV, AVI, etc.)
-- 🔲 **Minimalistic & Modern UI** with custom QSS styling
-- ⚡ **Lightweight & Fast Performance**
-
-## 🖼️ Screenshots
-
-![Main Interface](app_images/image1.PNG)
-![Main Interface](app_images/image2.PNG)
-
-## 🛠️ Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/naturalcapsule/RaM-MediaX.git
-   cd RaM-MediaX
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the application:**
-   ```bash
-   python media.py
-   ```
-
-## 📦 Dependencies
-
-- **Python 3.9**
-- **PyQt5**
-- **asyncio**
-- **winrt**
-
-## ⚙️ Configuration
-
-Customize colors and themes in `config.conf` to match your preferences.
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to fork the repository, submit pull requests, or open issues.
-
-1. Fork this repository
-2. Create a new branch (`git checkout -b feature-branch`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add new feature'`)
-5. Push to the branch (`git push origin feature-branch`)
-6. Open a Pull Request
-
-Made with ❤️ by [Natural Capsule](https://github.com/naturalcapsule)
-
-
 ## KURDISH SORANI
 
 # 📺 RaM-MediaX
@@ -74,6 +13,7 @@ RaM-MediaX پێلەری میدیایەکی سەرهەڵدەر، نوێنەر، �
 
 ## 🖼️ وێنەکان
 
+![ڕووکاری سەرەکی](app_images/image3.PNG)
 ![ڕووکاری سەرەکی](app_images/image1.PNG)
 ![ڕووکاری سەرەکی](app_images/image2.PNG)
 
@@ -89,6 +29,7 @@ RaM-MediaX پێلەری میدیایەکی سەرهەڵدەر، نوێنەر، �
    ```bash
    pip install -r requirements.txt
    ```
+   یان دەتوانیت تەنها فایلە دووانەییەکە لە بڵاوکراوەکانەوە دابەزێنیت.
 
 3. **بەرنامەکە بەڕێوەبەرە:**
    ```bash
@@ -104,7 +45,7 @@ RaM-MediaX پێلەری میدیایەکی سەرهەڵدەر، نوێنەر، �
 
 ## ⚙️ ڕێکخستن
 
-دەکرێت ڕەنگ و تێماکان لە `config.conf` گۆڕدرێن بۆ گونجاوکردن بە سەرقاڵی خۆت.
+دەکرێت ڕەنگ و تێماکان لە `config.ini` گونجاو بکەیت بە سەرقاڵی خۆت، و `style.css` بگۆڕە بۆ دابینکردنی ڕەنگێکی تازە بۆ دوگمەکان و لیبڵەکان!
 
 ## 🤝 بەشداریکردن
 
@@ -119,3 +60,65 @@ RaM-MediaX پێلەری میدیایەکی سەرهەڵدەر، نوێنەر، �
 
 دروستکراوە بە ❤️ لەلایەن [Natural Capsule](https://github.com/naturalcapsule)
 
+
+## ENGLISH
+
+# 📺 RaM-MediaX
+
+A sleek, modern, and lightweight media player built with Python, PyQt and Windows API. RaM-MediaX offers a minimalist interface with powerful playback features, optimized for both performance and ease of use.
+
+## 🚀 Features
+
+- 🎵 **Play/Pause, Forward, Rewind**
+- 📂 **Supports Popular Media Formats** (MP3, MP4, WAV, AVI, etc.)
+- 🔲 **Minimalistic & Modern UI** with custom QSS styling
+- ⚡ **Lightweight & Fast Performance**
+
+## 🖼️ Screenshots
+
+![Main Interface](app_images/image3.PNG)
+![Main Interface](app_images/image1.PNG)
+![Main Interface](app_images/image2.PNG)
+
+## 🛠️ Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/naturalcapsule/RaM-MediaX.git
+   cd RaM-MediaX
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+   or you can just download the binary file from the releases.
+
+3. **Run the application:**
+   ```bash
+   python media.py
+   ```
+
+## 📦 Dependencies
+
+- **Python 3.9**
+- **PyQt5**
+- **asyncio**
+- **winrt**
+
+## ⚙️ Configuration
+
+Customize colors and themes in `config.ini` to match your preferences, and tweak `style.css` to give buttons and labels a fresh new look!
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repository, submit pull requests, or open issues.
+
+1. Fork this repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add new feature'`)
+5. Push to the branch (`git push origin feature-branch`)
+6. Open a Pull Request
+
+Made with ❤️ by [Natural Capsule](https://github.com/naturalcapsule)

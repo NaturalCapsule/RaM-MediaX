@@ -1,3 +1,4 @@
 asyncio
 PyQt5
 winrt
+configparser

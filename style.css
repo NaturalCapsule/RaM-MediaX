@@ -1,52 +1,52 @@
+/* Modern QSS with a fresh and contemporary look */
+
 #window {
-    /* for coloring go to config.conf */
-    color: #ffffff;
+    background-color: #282c34; /* Dark theme background */
+    color: #f0f0f3; /* Light text color */
+    font-family: 'Segoe UI', sans-serif;
 }
 
 #title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
-    padding: 5px 15px;
-    background-color: transparent;
-    color: #ffffff;
-    border-radius: 5px;
+    padding: 10px 20px;
+    color: #000000; /* Soft off-white text */
+    border-radius: 8px;
+    letter-spacing: 1px;
 }
 
 #Close {
-    background-color: #d9534f;
-    color: white;
-    border: 10px;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px 15px;
 }
 
 #Close:hover {
-    background-color: #c9302c;
-    border: 10px;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px 15px;
 }
 
 #miniMize {
-    background-color: #f0ad4e;
-    color: white;
-    border: 10px;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px 15px;
 }
 
 #miniMize:hover {
-    background-color: #ec971f;
-    border: 10px;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px 15px;
 }
 
 #playPause, #Forward, #Rewind {
-    background-color: #5bc0de;
-    color: white;
-    border: 10px;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px 15px;
 }
 
 #playPause:hover, #Forward:hover, #Rewind:hover {
-    background-color: #31b0d5;
-    border: 10px;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px 15px;
 }
