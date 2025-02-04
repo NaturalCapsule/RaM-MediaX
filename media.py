@@ -2,7 +2,6 @@ from PyQt5.QtCore import Qt, QTimer, QSize, QTimer, QRect, QPoint
 from PyQt5.QtWidgets import QVBoxLayout, QGraphicsOpacityEffect, QApplication, QWidget, QLabel, QPushButton, QHBoxLayout, QSpacerItem, QSizePolicy
 from threading import Thread
 import os
-import asyncio
 from PyQt5.QtGui import QColor, QPainter,QMovie, QIcon, QPixmap
 import sys
 import asyncio
@@ -72,7 +71,6 @@ class MeidaPlayer(QWidget):
 
         self.color = config.get('Appearance', 'color')
         self.color = self.color.split(', ')
-        print(self.color)
         self.radius_ = config.get('Appearance', 'borderRadius')
         self.radius_ = self.radius_.split(', ')
 
@@ -91,10 +89,12 @@ class MeidaPlayer(QWidget):
         self.oldpos = event.globalPos()
 
     def mouseMoveEvent(self, event):
-        delta = QPoint(event.globalPos() - self.oldpos)
-        self.move(self.x() + delta.x(), self.y() + delta.y())
-        self.oldpos = event.globalPos()
-
+        try:
+            delta = QPoint(event.globalPos() - self.oldpos)
+            self.move(self.x() + delta.x(), self.y() + delta.y())
+            self.oldpos = event.globalPos()
+        except Exception:
+            return ''
 
     def screen_(self, position: list):
         x = int(self.width() * position[0])
@@ -104,12 +104,7 @@ class MeidaPlayer(QWidget):
     async def get_media_session(self):
         session_manager = await MediaManager.request_async()
         session = session_manager.get_current_session()
-        
-        if session:
-            print("Session retrieved successfully.")
-            print("Available methods in session:", dir(session))
-        else:
-            print("No media session available.")
+
         return session
 
 
@@ -186,61 +181,28 @@ class MeidaPlayer(QWidget):
 
     async def fast_forward(self):
         session = await self.get_media_session()
-        if not session:
-            print("⚠️ No active media session")
-            return
 
         try:
             timeline = session.get_timeline_properties()
             
             current_ticks = timeline.position.duration
-            max_ticks = timeline.max_seek_time.duration
-
-            if max_ticks <= 0:
-                print("❌ Seeking not supported")
-                return
-
-            success = await session.try_change_playback_position_async(current_ticks + 1e+8)
-
-            
-            if success:
-                print("⏩ Fast forwarded 10s")
-            else:
-                print("❌ Fast forward failed (app rejected the request)")
-            
-        except Exception as e:
-            print(f"❌ Error: {str(e)}")
-        os.system('cls')
-
-
+            _forward = await session.try_change_playback_position_async(current_ticks + 1e+8)
+        
+        except Exception:
+            return ''
 
     async def rewind(self):
         session = await self.get_media_session()
-        if not session:
-            print("⚠️ No active media session")
-            return
 
         try:
             timeline = session.get_timeline_properties()
             
             current_ticks = timeline.position.duration
-            max_ticks = timeline.max_seek_time.duration
 
-            if max_ticks <= 0:
-                print("❌ Seeking not supported")
-                return
+            _rewind = await session.try_change_playback_position_async(current_ticks - 1e+8)
 
-            success = await session.try_change_playback_position_async(current_ticks - 1e+8)
-
-            
-            if success:
-                print("⏩ Fast forwarded 10s")
-            else:
-                print("❌ Fast forward failed (app rejected the request)")
-            
         except Exception as e:
-            print(f"❌ Error: {str(e)}")
-        os.system('cls')
+            return ''
 
 
     def rewind_action(self):
@@ -429,7 +391,6 @@ def start_asyncio_loop(panel):
 def run_loop():
     app = QApplication([])
     app.setWindowIcon(QIcon('images/media_player.png'))
-    # app.setWindowTitl
     side = MeidaPlayer()
     
     Thread(target=start_asyncio_loop, args=(side,), daemon=True).start()
